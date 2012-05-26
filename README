@@ -1,27 +1,24 @@
-This is Perl module Plack::App::JenkinsNotification.
+NAME
+    Plack::App::JenkinsNotification -
 
-INSTALLATION
+SYNOPSIS
+        use Plack::App::JenkinsNotification;
 
-Plack::App::JenkinsNotification installation is straightforward. If your CPAN shell is set up,
-you should just be able to do
+        builder {
+            mount "/jenkins" => Plack::App::JenkinsNotification->new({ on_notify => sub {
+            
+            
+            }});
+        };
 
-    % cpan Plack::App::JenkinsNotification
+DESCRIPTION
+    Plack::App::JenkinsNotification is
 
-Download it, unpack it, then build it as per the usual:
+AUTHOR
+    Yo-An Lin <cornelius.howl {at} gmail.com>
 
-    % perl Makefile.PL
-    % make && make test
+SEE ALSO
+LICENSE
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
 
-Then install it:
-
-    % make install
-
-DOCUMENTATION
-
-Plack::App::JenkinsNotification documentation is available as in POD. So you can do:
-
-    % perldoc Plack::App::JenkinsNotification
-
-to read the documentation online with your favorite pager.
-
-Yo-An Lin

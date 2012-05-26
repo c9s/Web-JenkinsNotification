@@ -6,6 +6,7 @@ requires 'Plack';
 requires 'Net::Jenkins' => 0.04;
 requires 'Jenkins::NotificationListener' => 0.04;
 
+readme_from_pod 'lib/Plack/App/JenkinsNotification.pm';
 readme_markdown_from_pod 'lib/Plack/App/JenkinsNotification.pm';
 
 tests 't/*.t';
