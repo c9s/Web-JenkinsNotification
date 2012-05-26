@@ -1,13 +1,13 @@
 use inc::Module::Install;
-name 'Plack-App-JenkinsNotification';
-all_from 'lib/Plack/App/JenkinsNotification.pm';
+name 'Plack-Middleware-JenkinsNotification';
+all_from 'lib/Plack/Middleware/JenkinsNotification.pm';
 
 requires 'Plack';
 requires 'Net::Jenkins' => 0.04;
 requires 'Jenkins::NotificationListener' => 0.04;
 
-readme_from_pod 'lib/Plack/App/JenkinsNotification.pm';
-readme_markdown_from_pod 'lib/Plack/App/JenkinsNotification.pm';
+readme_from_pod 'lib/Plack/Middleware/JenkinsNotification.pm';
+readme_markdown_from_pod 'lib/Plack/Middleware/JenkinsNotification.pm';
 
 tests 't/*.t';
 # author_tests 'xt';
