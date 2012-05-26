@@ -1,4 +1,7 @@
 Revision history for Perl extension Plack::App::JenkinsNotification
 
+0.02    六  5/26 11:47:30 2012
+        - Return JSON on success.
+
 0.01    Sat May 26 11:25:07 2012
         - original version
