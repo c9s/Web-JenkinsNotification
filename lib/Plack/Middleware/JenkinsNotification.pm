@@ -1,4 +1,4 @@
-package Plack::App::JenkinsNotification;
+package Plack::Middleware::JenkinsNotification;
 use strict;
 use warnings;
 our $VERSION = '0.02';
@@ -32,14 +32,14 @@ __END__
 
 =head1 NAME
 
-Plack::App::JenkinsNotification -
+Plack::Middleware::JenkinsNotification -
 
 =head1 SYNOPSIS
 
-    use Plack::App::JenkinsNotification;
+    use Plack::Middleware::JenkinsNotification;
 
     builder {
-        mount "/jenkins" => Plack::App::JenkinsNotification->new({ on_notify => sub {
+        mount "/jenkins" => Plack::Middleware::JenkinsNotification->new({ on_notify => sub {
             my ($env,$payload) = @_;
             
         }});
@@ -47,7 +47,7 @@ Plack::App::JenkinsNotification -
 
 =head1 DESCRIPTION
 
-Plack::App::JenkinsNotification is
+Plack::Middleware::JenkinsNotification is
 
 =head1 AUTHOR
 
