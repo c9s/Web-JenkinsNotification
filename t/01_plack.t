@@ -2,13 +2,13 @@
 use lib 'lib';
 use Test::More;
 use Plack::Test;
-use Plack::App::JenkinsNotification;
+use Plack::Middleware::JenkinsNotification;
 use HTTP::Request::Common;
 use HTTP::Response;
 use File::Read;
 
 my $triggered = 0;
-my $handler = Plack::App::JenkinsNotification->new({ on_notify => sub { 
+my $handler = Plack::Middleware::JenkinsNotification->new({ on_notify => sub { 
     $triggered++;
 }});
 

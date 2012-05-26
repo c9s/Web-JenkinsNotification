@@ -1,13 +1,13 @@
 # NAME
 
-Plack::App::JenkinsNotification -
+Plack::Middleware::JenkinsNotification -
 
 # SYNOPSIS
 
-    use Plack::App::JenkinsNotification;
+    use Plack::Middleware::JenkinsNotification;
 
     builder {
-        mount "/jenkins" => Plack::App::JenkinsNotification->new({ on_notify => sub {
+        mount "/jenkins" => Plack::Middleware::JenkinsNotification->new({ on_notify => sub {
             my ($env,$payload) = @_;
             
 
@@ -16,7 +16,7 @@ Plack::App::JenkinsNotification -
 
 # DESCRIPTION
 
-Plack::App::JenkinsNotification is
+Plack::Middleware::JenkinsNotification is
 
 # AUTHOR
 
