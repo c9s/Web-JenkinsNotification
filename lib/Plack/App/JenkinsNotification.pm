@@ -23,7 +23,7 @@ sub call {
     }
 
     my $response = Plack::Response->new(200);
-    $response->body("success");
+    $response->body('{ "success": 1 }');
     return $response->finalize;
 }
 
