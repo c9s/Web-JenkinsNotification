@@ -40,7 +40,7 @@ Plack::App::JenkinsNotification -
 
     builder {
         mount "/jenkins" => Plack::App::JenkinsNotification->new({ on_notify => sub {
-            
+            my ($env,$payload) = @_;
             
         }});
     };
