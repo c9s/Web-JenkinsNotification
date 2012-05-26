@@ -13,7 +13,7 @@ license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
-name: Plack-App-JenkinsNotification
+name: Plack-Middleware-JenkinsNotification
 no_index:
   directory:
     - inc
@@ -25,4 +25,4 @@ requires:
   Plack: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.02
+version: 0.03

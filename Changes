@@ -1,5 +1,8 @@
 Revision history for Perl extension Plack::Middleware::JenkinsNotification
 
+0.03    六  5/26 16:24:12 2012
+        - Rename App:: to Middleware::
+
 0.02    六  5/26 11:47:30 2012
         - Return JSON on success.
 
