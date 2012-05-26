@@ -39,10 +39,16 @@ Plack::Middleware::JenkinsNotification -
     use Plack::Middleware::JenkinsNotification;
 
     builder {
+        mount "/jenkins" => builder {
+            enable "JenkinsNotification", on_notify => sub { 
+                    my ($env,$payload) = @_;
+            };
+        };
+
         mount "/jenkins" => Plack::Middleware::JenkinsNotification->new({ on_notify => sub {
             my ($env,$payload) = @_;
             
-        }});
+        }})->to_app;
     };
 
 =head1 DESCRIPTION
