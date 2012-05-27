@@ -8,7 +8,7 @@ Web::JenkinsNotification -
 
     builder {
         mount "/jenkins" => builder {
-            enable "JenkinsNotification";
+            enable "+Web::JenkinsNotification";
             sub { 
                 my $env = shift;
                 my $notification = $env->{ 'jenkins.notification' };  # Jenkins::Notification

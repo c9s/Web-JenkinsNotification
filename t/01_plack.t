@@ -10,7 +10,7 @@ use File::Read;
 
 test_psgi 
     app => builder {
-        enable "JenkinsNotification";
+        enable "+Web::JenkinsNotification";
         sub {
             my $env = shift;
 

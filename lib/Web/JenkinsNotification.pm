@@ -1,8 +1,8 @@
 package Web::JenkinsNotification;
 use strict;
 use warnings;
-our $VERSION = '0.04';
-use parent qw/Web/;
+our $VERSION = '0.05';
+use parent qw/Plack::Middleware/;
 use Plack::Util;
 use Plack::MIME;
 use Plack::Util::Accessor qw(on_notify);
@@ -40,7 +40,7 @@ Web::JenkinsNotification -
 
     builder {
         mount "/jenkins" => builder {
-            enable "JenkinsNotification";
+            enable "+Web::JenkinsNotification";
             sub { 
                 my $env = shift;
                 my $notification = $env->{ 'jenkins.notification' };  # Jenkins::Notification
