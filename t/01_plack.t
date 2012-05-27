@@ -1,31 +1,35 @@
 #!/usr/bin/env perl
 use lib 'lib';
-use Test::More;
+use Test::More tests => 3;
+use Plack::Builder;
 use Plack::Test;
 use Plack::Middleware::JenkinsNotification;
 use HTTP::Request::Common;
 use HTTP::Response;
 use File::Read;
 
-my $triggered = 0;
-my $handler = Plack::Middleware::JenkinsNotification->new({ on_notify => sub { 
-    $triggered++;
-}});
-
-ok $handler;
-
 test_psgi 
-    app => $handler,
+    app => builder {
+        enable "JenkinsNotification";
+        sub {
+            my $env = shift;
+
+            ok($env->{"jenkins.notification"}, 'found notification');
+            
+            my $response = Plack::Response->new(200);
+            $response->body('{ success: 1 }');
+            return $response->finalize;
+        };
+    },
     client => sub {
         my $cb  = shift;
         my $json = read_file 't/data/notification.json';
 
+        ok $json, 'got json';
+
         # URI-escape
         my $res = $cb->(POST "http://localhost/" , Content => $json );
-        my($ct, $charset) = $res->content_type;
-        ok $res->content =~ m{success}i;
+        ok $res, 'response';
     };
-
-ok $triggered;
 
 done_testing;

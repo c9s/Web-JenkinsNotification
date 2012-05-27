@@ -1,8 +1,8 @@
 package Plack::Middleware::JenkinsNotification;
 use strict;
 use warnings;
-our $VERSION = '0.03';
-use parent qw/Plack::Component/;
+our $VERSION = '0.04';
+use parent qw/Plack::Middleware/;
 use Plack::Util;
 use Plack::MIME;
 use Plack::Util::Accessor qw(on_notify);
@@ -13,6 +13,7 @@ use Jenkins::NotificationListener;
 
 sub call { 
     my ($self,$env) = @_;
+
     my $req = Plack::Request->new($env);
     my $body = $req->raw_body;
 
@@ -22,6 +23,8 @@ sub call {
         $self->on_notify->( $env, $notification );
     }
     $env->{ 'jenkins.notification' } = $notification;
+
+    return $self->app->( $env );
 }
 
 1;
@@ -37,10 +40,10 @@ Plack::Middleware::JenkinsNotification -
 
     builder {
         mount "/jenkins" => builder {
-            enable "JenkinsNotification", on_notify => sub { my ($env,$payload) = @_; };
+            enable "JenkinsNotification";
             sub { 
                 my $env = shift;
-                my $notification = $env->{ 'jenkins.notification' };
+                my $notification = $env->{ 'jenkins.notification' };  # Jenkins::Notification
 
             };
         };
