@@ -21,10 +21,7 @@ sub call {
     if( $self->on_notify ) {
         $self->on_notify->( $env, $notification );
     }
-
-    my $response = Plack::Response->new(200);
-    $response->body('{ "success": 1 }');
-    return $response->finalize;
+    $env->{ 'jenkins.notification' } = $notification;
 }
 
 1;
@@ -40,8 +37,11 @@ Plack::Middleware::JenkinsNotification -
 
     builder {
         mount "/jenkins" => builder {
-            enable "JenkinsNotification", on_notify => sub { 
-                    my ($env,$payload) = @_;
+            enable "JenkinsNotification", on_notify => sub { my ($env,$payload) = @_; };
+            sub { 
+                my $env = shift;
+                my $notification = $env->{ 'jenkins.notification' };
+
             };
         };
 
