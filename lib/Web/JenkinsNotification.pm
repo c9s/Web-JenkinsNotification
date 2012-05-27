@@ -1,8 +1,8 @@
-package Plack::Middleware::JenkinsNotification;
+package Web::JenkinsNotification;
 use strict;
 use warnings;
 our $VERSION = '0.04';
-use parent qw/Plack::Middleware/;
+use parent qw/Web/;
 use Plack::Util;
 use Plack::MIME;
 use Plack::Util::Accessor qw(on_notify);
@@ -32,11 +32,11 @@ __END__
 
 =head1 NAME
 
-Plack::Middleware::JenkinsNotification -
+Web::JenkinsNotification -
 
 =head1 SYNOPSIS
 
-    use Plack::Middleware::JenkinsNotification;
+    use Web::JenkinsNotification;
 
     builder {
         mount "/jenkins" => builder {
@@ -48,7 +48,7 @@ Plack::Middleware::JenkinsNotification -
             };
         };
 
-        mount "/jenkins" => Plack::Middleware::JenkinsNotification->new({ on_notify => sub {
+        mount "/jenkins" => Web::JenkinsNotification->new({ on_notify => sub {
             my ($env,$payload) = @_;
             
         }})->to_app;
@@ -56,7 +56,7 @@ Plack::Middleware::JenkinsNotification -
 
 =head1 DESCRIPTION
 
-Plack::Middleware::JenkinsNotification is
+Web::JenkinsNotification is
 
 =head1 AUTHOR
 

@@ -3,7 +3,7 @@ use lib 'lib';
 use Test::More tests => 3;
 use Plack::Builder;
 use Plack::Test;
-use Plack::Middleware::JenkinsNotification;
+use Web::JenkinsNotification;
 use HTTP::Request::Common;
 use HTTP::Response;
 use File::Read;

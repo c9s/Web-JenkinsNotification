@@ -7,4 +7,4 @@ all_pod_files_spelling_ok('lib');
 __DATA__
 Yo-An Lin
 cornelius.howl {at} gmail.com
-Plack::Middleware::JenkinsNotification
+Web::JenkinsNotification

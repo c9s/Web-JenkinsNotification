@@ -1,4 +1,4 @@
 use strict;
 use Test::More tests => 1;
 
-BEGIN { use_ok 'Plack::Middleware::JenkinsNotification' }
+BEGIN { use_ok 'Web::JenkinsNotification' }

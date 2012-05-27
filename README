@@ -1,8 +1,8 @@
 NAME
-    Plack::Middleware::JenkinsNotification -
+    Web::JenkinsNotification -
 
 SYNOPSIS
-        use Plack::Middleware::JenkinsNotification;
+        use Web::JenkinsNotification;
 
         builder {
             mount "/jenkins" => builder {
@@ -14,14 +14,14 @@ SYNOPSIS
                 };
             };
 
-            mount "/jenkins" => Plack::Middleware::JenkinsNotification->new({ on_notify => sub {
+            mount "/jenkins" => Web::JenkinsNotification->new({ on_notify => sub {
                 my ($env,$payload) = @_;
             
             }})->to_app;
         };
 
 DESCRIPTION
-    Plack::Middleware::JenkinsNotification is
+    Web::JenkinsNotification is
 
 AUTHOR
     Yo-An Lin <cornelius.howl {at} gmail.com>

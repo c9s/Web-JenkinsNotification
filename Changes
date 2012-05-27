@@ -1,4 +1,4 @@
-Revision history for Perl extension Plack::Middleware::JenkinsNotification
+Revision history for Perl extension Web::JenkinsNotification
 
 0.04    日  5/27 14:03:09 2012
         - Might migrate this module to Jenkins::NotificationListener::App
